@@ -1,162 +1,107 @@
-﻿# Hosting-website-using-aws-s3-and-cloudfront-using-terraform
- <div align="center">
-
 # 🌐 Hosting a Static Website using AWS S3 & CloudFront with Terraform
 
-[![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4?style=for-the-badge&logo=terraform)](https://www.terraform.io/)
-[![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazonaws)](https://aws.amazon.com/)
-[![CloudFront](https://img.shields.io/badge/CloudFront-CDN-blue?style=for-the-badge&logo=amazonaws)](https://aws.amazon.com/cloudfront/)
-[![S3](https://img.shields.io/badge/Amazon-S3-green?style=for-the-badge&logo=amazons3)](https://aws.amazon.com/s3/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
-
-### Deploying a Secure Static Website on AWS using Infrastructure as Code (Terraform)
-
-</div>
+This project demonstrates how to deploy a **secure static website** on AWS using **Terraform**. The infrastructure is fully automated using Infrastructure as Code (IaC), making deployment simple, repeatable, and efficient.
 
 ---
 
-# 📖 Project Overview
+## 🚀 Features
 
-This project demonstrates how to deploy a **secure, highly available, and globally distributed static website** using **Amazon S3**, **Amazon CloudFront**, and **Terraform**.
-
-Instead of configuring AWS resources manually, the entire infrastructure is provisioned using **Terraform**, making deployments repeatable, version-controlled, and automated.
-
----
-
-# 🚀 Features
-
-- ✅ Infrastructure as Code using Terraform
-- ✅ Amazon S3 Private Bucket
-- ✅ CloudFront Content Delivery Network (CDN)
-- ✅ Origin Access Control (OAC)
-- ✅ Automatic Website File Upload
-- ✅ Secure Bucket Policy
-- ✅ HTTPS Enabled via CloudFront
-- ✅ Global Low-Latency Content Delivery
-- ✅ Easy Infrastructure Cleanup
+- Infrastructure as Code using Terraform
+- Amazon S3 Private Bucket
+- CloudFront Distribution
+- Origin Access Control (OAC)
+- Automatic Website File Upload
+- Secure Bucket Policy
+- HTTPS Support
+- Global Content Delivery
 
 ---
 
-# 🏗️ Architecture
+## 🛠️ AWS Services Used
 
-> **Replace the image below with your architecture diagram.**
-
-<p align="center">
-<img src="images/architecture.png" width="900">
-</p>
-
-### Architecture Flow
-
-```text
-Developer
-      │
-terraform apply
-      │
-      ▼
-Terraform
-      │
-      ├───────────────► Amazon S3 (Private Bucket)
-      │                      │
-      │                      ├── index.html
-      │                      ├── style.css
-      │                      └── script.js
-      │
-      ├───────────────► Origin Access Control (OAC)
-      │
-      └───────────────► CloudFront Distribution
-                               │
-                               ▼
-                      Internet Users
-```
+- Amazon S3
+- Amazon CloudFront
+- Origin Access Control (OAC)
+- IAM Bucket Policy
+- Terraform
 
 ---
 
-# ☁️ AWS Services Used
-
-| Service | Purpose |
-|----------|---------|
-| Amazon S3 | Store static website files |
-| CloudFront | Global CDN |
-| Origin Access Control | Secure access to S3 |
-| IAM Policy | Allow CloudFront to access S3 |
-| Terraform | Infrastructure provisioning |
-
----
-
-# 📂 Project Structure
+## 📁 Project Structure
 
 ```
-Hosting-website-using-aws-s3-and-cloudfront-using-terraform/
-
-│
+.
 ├── main.tf
 ├── variables.tf
 ├── local.tf
-├── outputs.tf
-├── providers.tf
 ├── .gitignore
 ├── README.md
-│
-├── www/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-└── images/
-    └── architecture.png
+└── www/
+    ├── index.html
+    ├── style.css
+    └── script.js
 ```
 
 ---
 
-# ⚙️ Prerequisites
+## ⚙️ Prerequisites
 
-- Terraform
-- AWS CLI
 - AWS Account
+- AWS CLI
+- Terraform
 - Git
-- Visual Studio Code
 
 ---
 
-# 🔧 Installation
+## 🚀 Deployment Steps
 
-Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/samarthmutagekar23work/Hosting-website-using-aws-s3-and-cloudfront-using-terraform.git
-```
 
-Go to the project directory
-
-```bash
 cd Hosting-website-using-aws-s3-and-cloudfront-using-terraform
 ```
 
-Configure AWS CLI
+### 2. Configure AWS Credentials
 
 ```bash
 aws configure
 ```
 
-Initialize Terraform
+### 3. Initialize Terraform
 
 ```bash
 terraform init
 ```
 
-Preview the deployment
+### 4. Preview Changes
 
 ```bash
 terraform plan
 ```
 
-Deploy the infrastructure
+### 5. Deploy Infrastructure
 
 ```bash
 terraform apply
 ```
 
-Destroy the infrastructure
+Type **yes** when prompted.
+
+---
+
+## 🌍 Website Access
+
+After deployment, Terraform will create a CloudFront Distribution.
+
+Open the CloudFront URL in your browser to access the website.
+
+---
+
+## 🧹 Destroy Resources
+
+To delete all AWS resources:
 
 ```bash
 terraform destroy
@@ -164,123 +109,23 @@ terraform destroy
 
 ---
 
-# 📷 Screenshots
+## 📚 What I Learned
 
-## AWS S3 Bucket
-
-> Add screenshot
-
----
-
-## CloudFront Distribution
-
-> Add screenshot
-
----
-
-## Website Output
-
-> Add screenshot
-
----
-
-# 📄 Terraform Resources
-
-This project provisions:
-
-- Amazon S3 Bucket
-- CloudFront Distribution
-- Origin Access Control
-- Bucket Policy
-- Website Objects
-
----
-
-# 📤 Outputs
-
-Terraform outputs:
-
-- CloudFront URL
-- Bucket Name
-
-Example:
-
-```
-CloudFront URL
-
-https://xxxxxxxx.cloudfront.net
-```
-
----
-
-# 🔒 Security
-
-✔ Private S3 Bucket
-
-✔ CloudFront Origin Access Control (OAC)
-
-✔ HTTPS Enabled
-
-✔ Least Privilege Bucket Policy
-
----
-
-# 💰 Estimated AWS Cost
-
-For learning purposes, this project typically falls within the AWS Free Tier if usage remains low.
-
-Services used:
-
+- Infrastructure as Code (Terraform)
 - Amazon S3
-- Amazon CloudFront
-
-Always monitor your AWS Billing Dashboard.
-
----
-
-# 📚 Learning Outcomes
-
-Through this project, I learned:
-
-- Infrastructure as Code using Terraform
-- Deploying secure static websites
-- CloudFront CDN configuration
+- CloudFront CDN
 - Origin Access Control (OAC)
-- S3 Bucket Policies
-- AWS Resource Management
-- Terraform State Management
+- AWS Bucket Policies
+- Secure Static Website Hosting
 
 ---
 
-# 🧹 Cleanup
-
-Delete all AWS resources
-
-```bash
-terraform destroy
-```
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome!
-
-Feel free to fork this repository and submit a Pull Request.
-
----
-
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Samarth Mutagekar**
 
 - GitHub: https://github.com/samarthmutagekar23work
-- LinkedIn: https://www.linkedin.com/in/samarth-mutagekar-898890276
 
 ---
 
-<div align="center">
-
-⭐ If you found this project helpful, please consider giving it a Star ⭐
-
-</div>
+⭐ If you found this project helpful, don't forget to **Star** the repository!
